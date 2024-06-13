@@ -4,6 +4,7 @@ config.autoAddCss = false
 import Footer from '@/src/component/Footer/Footer'
 import Top from '@/src/component/Top/Top'
 import '../styles/style.css'
+import Login from './Login/Login'
 
 
 
@@ -11,9 +12,10 @@ export default function App({ Component, pageProps }) {
   return (
     // <div style = {{ width : 1000, margin : "0 auto"}}>
     <div>
-      <Top/>
+      <Login/>
+      {/* <Top/>
       <Component {...pageProps} />
-      <Footer/>
+      <Footer/> */}
     </div>
   
   )
