@@ -5,7 +5,13 @@ import styles from './login.module.css'
 //import LNFail from "./modal/loginFail"
 
 
-const Login = () => {
+const TestUser = {
+    email: 'admin',
+    password: 'qwer1234!'
+}
+
+
+const Login = ({setIsLogin}) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -27,11 +33,11 @@ const Login = () => {
     console.log(password.length)
 
     function Join(){
-        window.location.hash = "/signin"
+        // window.location.hash = "/signin"
     }
     
     function ResetPW(){
-        window.location.hash = "/resetPW"
+        // window.location.hash = "/resetPW"
     }
 
     const openModalS = () => {
@@ -54,6 +60,13 @@ const Login = () => {
     
     const loginToHomepage = async () => {
         
+        if(email === TestUser.email && password === TestUser.password){
+            setIsLogin(true)
+           
+        } else {
+   
+           alert('아이디와 비밀번호가 올바르지 않습니다.')
+        }
         // try {
                             
         //     const user = await Auth.signIn(email, password);
@@ -66,8 +79,7 @@ const Login = () => {
            
     
         // } catch (error){
-        //     console.log('error signing in', error);
-        //    //alert('아이디와 비밀번호가 올바르지 않습니다.')
+        
         //    openModalF()
         // }
          
@@ -86,7 +98,7 @@ const Login = () => {
                 <input className={styles.login_password} placeholder="ex. ••••••••" onChange={passwordChange} type="password" />
             </div>
             <div className={styles.btn_area}>
-                <button className={styles.btn_join} onClick={Join}>회원가입</button>
+                {/* <button className={styles.btn_join} onClick={Join}>회원가입</button> */}
                 
                 {password.length > 8 ? 
                 
